@@ -1,0 +1,21 @@
+name: DataSchema Code Convention
+
+on:
+  push:
+    branches:
+      - main
+      - laboratory-work-4
+
+jobs:
+  sql-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Install sqlfluff
+        run: pip install sqlfluff
+      - name: Lint SQL schema
+        run: sqlfluff lint $GITHUB_WORKSPACE/2-SoftwareDesign/2.4-PhysicalSchema/DataSchema.sql --dialect ansi
