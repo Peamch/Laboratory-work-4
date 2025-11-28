@@ -18,4 +18,4 @@ jobs:
       - name: Install sqlfluff
         run: pip install sqlfluff
       - name: Lint SQL schema
-        run: sqlfluff lint $GITHUB_WORKSPACE/DataSchema.sql --dialect ansi
+        run: sqlfluff lint $GITHUB_WORKSPACE/DataSchemaModified.sql --dialect ansi
