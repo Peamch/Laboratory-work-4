@@ -1,0 +1,36 @@
+name: Print Software & DB Versions
+
+on:
+  push:
+    branches:
+      - main
+      - laboratory-work-4
+
+jobs:
+  print_app_software_versions:
+    name: Print Application Software Versions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Node.js version (Backend)
+        run: node --version || echo "Node.js not installed"
+      - name: Print Python version (Backend)
+        run: python3 --version || echo "Python not installed"
+      - name: Print Java version (Optional for Android)
+        run: java -version || echo "Java not installed"
+      - name: Print npm version (Frontend JS)
+        run: npm --version || echo "npm not installed"
+      - name: Print OS platform
+        run: uname -a
+
+  print_database_versions:
+    name: Print Database & Middleware Versions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print PostgreSQL version
+        run: psql --version || echo "PostgreSQL not installed"
+      - name: Print SQLite version
+        run: sqlite3 --version || echo "sqlite3 not installed"
+      - name: Print RabbitMQ version
+        run: rabbitmqctl status || echo "RabbitMQ not installed"
+      - name: Print Kafka version
+        run: kafka-topics.sh --version || echo "Kafka not installed"
