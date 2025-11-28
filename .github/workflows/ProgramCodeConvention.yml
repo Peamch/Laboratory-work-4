@@ -18,4 +18,4 @@ jobs:
       - name: Install flake8
         run: pip install flake8
       - name: Lint Python code
-        run: flake8 $GITHUB_WORKSPACE/.github/workflows/ProgramCode.py
+        run: flake8 $GITHUB_WORKSPACE/.github/workflows/ProgramCodeModified.py
